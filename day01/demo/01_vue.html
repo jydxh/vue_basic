@@ -12,12 +12,13 @@
 			<div>{{score}}</div>
 			<div>主演： {{actors.join(' / ')}}</div>
 			<div>{{showingOn}}上映</div>
+			<button id="btn">click me change a movie</button>
 		</div>
 
 		<script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
 
 		<script>
-			new Vue({
+			let vm = new Vue({
 				data: {
 					// data中用于定义页面所需要的数据
 					name: "这个杀手不太冷静",
@@ -27,6 +28,9 @@
 				},
 				el: "#app", // el用于指明到底让Vue管理哪一个div  #app
 			});
+			btn.onclick = function () {
+				(vm.name = "kongfu"), (vm.score = 8.5), ((vm.actors = ["周星驰", "黄圣依", "火云邪神"]), (vm.showingOn = "2018-10-11"));
+			};
 		</script>
 	</body>
 </html>
