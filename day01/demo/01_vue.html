@@ -13,6 +13,12 @@
 			<div>主演： {{actors.join(' / ')}}</div>
 			<div>{{showingOn}}上映</div>
 			<button id="btn">click me change a movie</button>
+			<br />
+			<br />
+			<button v-on:click="clickMe()">test vue2 event-handler</button>
+			<button @click="clickMe">test vue2</button>
+			<button @click="clickMe()">test vue2</button>
+			<button @click="clickMe(10,20)">test vue2</button>
 		</div>
 
 		<script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
@@ -25,6 +31,11 @@
 					score: 9.6,
 					actors: ["魏翔2", "沈腾2", "马丽2"],
 					showingOn: "2021-10-15",
+				},
+				methods: {
+					clickMe: (a, b) => {
+						console.log("run the ClickMe()", a, b);
+					},
 				},
 				el: "#app", // el用于指明到底让Vue管理哪一个div  #app
 			});
