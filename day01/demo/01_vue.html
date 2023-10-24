@@ -13,6 +13,7 @@
 			<div>主演： {{actors.join(' / ')}}</div>
 			<div>{{showingOn}}上映</div>
 			<button id="btn">click me change a movie</button>
+			<button @click="next">change movie use vue</button>
 			<br />
 			<br />
 			<button v-on:click="clickMe()">test vue2 event-handler</button>
@@ -35,6 +36,16 @@
 				methods: {
 					clickMe: (a, b) => {
 						console.log("run the ClickMe()", a, b);
+					},
+					next() {
+						//next movie, so the update the data so dom page will update // when using this do not use array function
+
+						this.name = "功夫";
+						this.score = 8.5;
+						this.actors = ["周星驰", "黄圣依", "火云邪神"];
+						this.showingOn = "2018-10-10";
+
+						/* (vm.name = "kongfu"), (vm.score = 8.5), ((vm.actors = ["周星驰", "黄圣依", "火云邪神"]), (vm.showingOn = "2018-10-11")); */
 					},
 				},
 				el: "#app", // el用于指明到底让Vue管理哪一个div  #app
