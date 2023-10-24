@@ -8,6 +8,8 @@
 	<body>
 		<div id="app">
 			<h2>电影详情</h2>
+			<img :src="url" width="125px" alt="" />
+			<img :src=`./img/${n}.jpg` width="125px" alt="" />
 			<div>{{name}}</div>
 			<div>{{score}}</div>
 			<div>主演： {{actors.join(' / ')}}</div>
@@ -28,6 +30,8 @@
 			let vm = new Vue({
 				data: {
 					// data中用于定义页面所需要的数据
+					n: 1,
+					url: "./img/1.jpg",
 					name: "这个杀手不太冷静",
 					score: 9.6,
 					actors: ["魏翔2", "沈腾2", "马丽2"],
@@ -39,7 +43,8 @@
 					},
 					next() {
 						//next movie, so the update the data so dom page will update // when using this do not use array function
-
+						this.n = 2;
+						this.url = "./img/2.jpg";
 						this.name = "功夫";
 						this.score = 8.5;
 						this.actors = ["周星驰", "黄圣依", "火云邪神"];
