@@ -4,6 +4,23 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>01vue.html</title>
+		<style>
+			.tabs {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+				display: flex;
+				border-bottom: 1px solid #999;
+				cursor: pointer;
+			}
+			.tabs > li {
+				padding: 8px 15px;
+			}
+			.tabs > li.active {
+				border-bottom: 2px solid red;
+				color: red;
+			}
+		</style>
 	</head>
 	<body>
 		<div id="app">
@@ -14,6 +31,15 @@
 			<div>{{score}}</div>
 			<div>主演： {{actors.join(' / ')}}</div>
 			<div>{{showingOn}}上映</div>
+			<!-- 标签页 介绍 演职人员 奖项 图集 -->
+			<ul class="tabs">
+				<li @click="now=0" :class="now==0?'active':''">介绍</li>
+				<li @click="now=1" :class="now==1?'active':''">演职人员</li>
+				<li @click="now=2" :class="now==2?'active':''">奖项</li>
+				<li @click="now=3" :class="now==3?'active':''">图集</li>
+			</ul>
+			<br />
+			<br />
 			<button id="btn">click me change a movie</button>
 			<button @click="next">change movie use vue</button>
 			<br />
@@ -30,6 +56,7 @@
 			let vm = new Vue({
 				data: {
 					// data中用于定义页面所需要的数据
+					now: 0, //the index for the active tag
 					n: 1,
 					url: "./img/1.jpg",
 					name: "这个杀手不太冷静",
@@ -55,7 +82,8 @@
 				},
 				el: "#app", // el用于指明到底让Vue管理哪一个div  #app
 			});
-			btn.onclick = function () {
+
+			document.getElementById("btn").onclick = function () {
 				(vm.name = "kongfu"), (vm.score = 8.5), ((vm.actors = ["周星驰", "黄圣依", "火云邪神"]), (vm.showingOn = "2018-10-11"));
 			};
 		</script>

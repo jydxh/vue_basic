@@ -50,3 +50,6 @@ build/
 dist/
 
 node_modules/
+
+.jpg
+.png
