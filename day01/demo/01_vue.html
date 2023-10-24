@@ -38,6 +38,11 @@
 				<li @click="now=2" :class="now==2?'active':''">奖项</li>
 				<li @click="now=3" :class="now==3?'active':''">图集</li>
 			</ul>
+
+			<div :style="now!=0&&'display:none'">介绍人员内容</div>
+			<div :style="now!=1&&'display:none'">演职人员内容</div>
+			<div :style="now!=2&&'display:none'">奖项内容</div>
+			<div :style="now!=3&&'display:none'">图集内容</div>
 			<br />
 			<br />
 			<button id="btn">click me change a movie</button>
