@@ -12,6 +12,11 @@ const routes = [
 		component: HomeView,
 	},
 	{
+		path: "/direct",
+		name: "direct",
+		component: () => import("../views/Direct.vue"),
+	},
+	{
 		path: "/home",
 
 		component: HomeView,
