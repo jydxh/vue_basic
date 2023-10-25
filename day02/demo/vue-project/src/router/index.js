@@ -7,6 +7,11 @@ Vue.use(VueRouter);
 const routes = [
 	// short cut vr
 	{
+		path: "/vfor",
+		name: "vfor",
+		component: () => import("../views/Vfor.vue"),
+	},
+	{
 		path: "/",
 		name: "home",
 		component: HomeView,
