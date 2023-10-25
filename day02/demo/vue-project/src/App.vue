@@ -1,6 +1,6 @@
 <template>
 	<div id="app">
-		<nav>
+		<nav class="nav">
 			<a :href="url" target="_b">{{ link }}</a> | <router-link to="/">Home</router-link> | <router-link to="/about">About</router-link> |
 			<router-link to="/index">Index</router-link> | <router-link to="/login">Login</router-link> | <router-link to="/register">Register</router-link> |
 			<router-link to="/detail">Detail</router-link>
@@ -22,6 +22,11 @@ export default {
 	},
 };
 </script>
+<style lang="scss">
+.nav {
+	font-size: 1.2em;
+}
+</style>
 
 <style lang="scss">
 #app {

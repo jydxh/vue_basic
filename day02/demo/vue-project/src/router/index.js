@@ -5,6 +5,7 @@ import HomeView from "../views/HomeView.vue";
 Vue.use(VueRouter);
 //routes数组 配置了项目中所有的【路由地址：组件】之间的 映射关系
 const routes = [
+	// short cut vr
 	{
 		path: "/",
 		name: "home",
@@ -19,6 +20,11 @@ const routes = [
 		path: "/index",
 		name: "index",
 		component: () => import("../views/Index.vue"),
+	},
+	{
+		path: "/basic",
+		name: "basic",
+		component: () => import("../views/Basic.vue"),
 	},
 	{
 		path: "/login",
