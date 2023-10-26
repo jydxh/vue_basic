@@ -1,16 +1,34 @@
 <template>
 	<div>
 		<h2>表单的双向数据绑定指令： v-midel</h2>
-		Account Number
+		账号：
 		<input v-model="form.name" type="text" placeholder="enter you account number" :class="{ err: !valid.name }" />
 		<hr />
-		Password:
+		密码：
 		<input v-model="form.pwd" type="password" placeholder="enter your password" :class="{ err: !valid.pwd }" />
 		<hr />
-		Phone Number:
+		手机：
 		<input v-model="form.phone" type="text" placeholder="enter your phone number" :class="{ err: !valid.phone }" />
 		<hr />
-		Email: <input v-model="form.email" type="text" placeholder="enter you email address" :class="{ err: !valid.email }" />
+		邮箱：
+		<input v-model="form.email" type="text" placeholder="enter you email address" :class="{ err: !valid.email }" />
+		<hr />
+		性别:
+		<input type="radio" value="male" v-model="form.sex" /> 男 <input type="radio" value="female" v-model="form.sex" /> 女
+		<hr />
+		感兴趣的的行业：
+		<input type="checkbox" value="education" v-model="form.hy" />education <input type="checkbox" value="financial" v-model="form.hy" />financial
+		<input type="checkbox" value="IT" v-model="form.hy" />IT <input type="checkbox" value="medical" v-model="form.hy" />medical
+		<input type="checkbox" value="other" v-model="form.hy" />other
+		<hr />
+		选择籍贯：
+		<select v-model="form.jg">
+			<option value="heibei">河北</option>
+			<option value="heinan">河南</option>
+			<option value="shandong">山东</option>
+			<option value="shanxi">山西</option>
+			<option value="other">其他</option>
+		</select>
 
 		<hr />
 
@@ -28,6 +46,9 @@
 					pwd: "",
 					phone: "",
 					email: "",
+					sex: "male", // 单选用string 如果不填value 默认为true/false
+					hy: ["education"], // 多选用数组 , 在数组中增加'education' 则默认选中education
+					jg: "heibei", // 下拉列表框，默认选中的是heibei
 				},
 				valid: {
 					name: true,
