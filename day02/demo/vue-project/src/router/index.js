@@ -11,6 +11,12 @@ const routes = [
 		name: "vfor",
 		component: () => import("../views/Vfor.vue"),
 	},
+
+	{
+		path: "/form",
+		name: "form",
+		component: () => import("../views/Form.vue"),
+	},
 	{
 		path: "/",
 		name: "home",
