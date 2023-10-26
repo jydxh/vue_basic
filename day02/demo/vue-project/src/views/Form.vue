@@ -5,13 +5,12 @@
 		<input v-model="form.name" type="text" placeholder="enter you account number" :class="{ err: !valid.name }" />
 		<hr />
 		Password:
-		<input v-model="form.pwd" type="password" placeholder="enter your password" />
+		<input v-model="form.pwd" type="password" placeholder="enter your password" :class="{ err: !valid.pwd }" />
 		<hr />
 		Phone Number:
-		<input v-model="form.phone" type="text" placeholder="enter your phone number" />
+		<input v-model="form.phone" type="text" placeholder="enter your phone number" :class="{ err: !valid.phone }" />
 		<hr />
-		Email:
-		<input v-model="form.email" type="text" placeholder="enter you email address" />
+		Email: <input v-model="form.email" type="text" placeholder="enter you email address" :class="{ err: !valid.email }" />
 
 		<hr />
 
@@ -71,6 +70,20 @@
 				} else {
 					this.valid.name = false;
 				}
+			},
+
+			"form.pwd": function (newval, oldval) {
+				const reg = /^\d{6}$/;
+				this.valid.pwd = reg.test(newval);
+			},
+
+			"form.phone": function (newval) {
+				const reg = /^(?:\+?86)?1(?:3(?:4[^9\D]|[5-9]\d)|5[^3-6\D]\d|7[28]\d|8[23478]\d|9[578]\d)\d{7}$/;
+				this.valid.phone = reg.test(newval);
+			},
+			"form.email": function (newval) {
+				const reg = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+				this.valid.email = reg.test(newval);
 			},
 		},
 	};
