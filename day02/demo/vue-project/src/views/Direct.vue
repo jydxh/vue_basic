@@ -17,18 +17,46 @@
 		<span v-else-if="age < 35">青年 (18-35)</span>
 		<span v-else-if="age < 60">中年 (36-60)</span>
 		<span v-else>老年(61-)</span>
+		<hr />
+		<h3 v-blue>测试自定义指令</h3>
+		<p v-red>Lorem ipsum, dolor sit amet consectetur adipisicim dolor.</p>
+		<p v-color="`#2fd356`">r sit amet consectetr sit amet consectetr sit amet consectet</p>
 	</div>
 </template>
 
 <script>
-export default {
-	data() {
-		return {
-			age: 17,
-			text: "今晚打老虎 ..<span style='color: red;'>hello wrold</span>",
-		};
-	},
-};
+	export default {
+		data() {
+			return {
+				age: 17,
+				text: "今晚打老虎 ..<span style='color: red;'>hello wrold</span>",
+			};
+		},
+
+		directives: {
+			//用于定义自定义指令 custom directives
+			// red 是自定义指令的名字
+			red: {
+				// inserted 法方 有vue自动调用，当绑定该指令的元素被插入到dom后执行
+				// vue 将传入el参数 表示绑定了该指令的DOM对象
+				inserted: function (el) {
+					el.style.color = "#f00"; // 为当前的dom元素修改文本颜色
+				},
+			},
+			blue: {
+				inserted: function (el) {
+					el.style.color = "#00f";
+				},
+			},
+			color: {
+				inserted(el, binding) {
+					// binding: 指令参数对象
+					console.log(binding);
+					el.style.color = binding.value;
+				},
+			},
+		},
+	};
 </script>
 
 <style lang="scss" scoped></style>
