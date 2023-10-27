@@ -49,6 +49,7 @@
 <style lang="scss" scoped>
 	.header {
 		display: flex;
+		flex-wrap: no-wrap;
 		width: 80%;
 		margin: 0px auto;
 		padding: 10px 0;
