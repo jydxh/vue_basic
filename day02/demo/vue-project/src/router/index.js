@@ -11,6 +11,11 @@ const routes = [
 		name: "vfor",
 		component: () => import("../views/Vfor.vue"),
 	},
+	{
+		path: "/http",
+		name: "http",
+		component: () => import("../views/Http.vue"),
+	},
 
 	{
 		path: "/form",
