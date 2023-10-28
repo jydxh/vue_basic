@@ -16,7 +16,11 @@ const routes = [
 		name: "http",
 		component: () => import("../views/Http.vue"),
 	},
-
+	{
+		path: "/actor",
+		name: "actor",
+		component: () => import("../views/Actor.vue"),
+	},
 	{
 		path: "/form",
 		name: "form",

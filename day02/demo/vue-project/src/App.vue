@@ -6,6 +6,7 @@
 			<router-link to="/login">Login</router-link> | <router-link to="/register">Register</router-link> | <router-link to="/basic">Basic</router-link> |
 			<router-link to="/detail">Detail</router-link>| <router-link to="/direct">direct</router-link> | <router-link to="/form">form</router-link>|
 			<router-link to="/http">axios request</router-link>| <router-link to="/vfor">vfor loop</router-link> |
+			<router-link to="/actor">actor</router-link>
 		</nav>
 		<!-- 路由系统的占位符 显示的具体内容取决于资源路径预期对应的
     vue组件 -->
