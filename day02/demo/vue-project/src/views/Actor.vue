@@ -4,6 +4,14 @@
 		<hr />
 		<button @click="showActors">click to show first 100 actors</button>
 		<hr />
+		<h2>loading the counter</h2>
+		<counter :min="0" :max="10"></counter>
+		<br />
+		<counter :min="0" :max="20"></counter>
+		<br />
+
+		<counter></counter>
+		<hr />
 		<!-- <div class="box">
 			<div class="card" v-for="item in actor" :key="item.id">
 				<div><img :src="item.actor_avatar" alt="" /></div>
@@ -17,12 +25,13 @@
 </template>
 
 <script>
+	import Counter from "../components/Counter.vue";
 	import Person from "../components/Person.vue"; // 引入子组件 person
 	import Myaxios from "../http/Myaxios";
 
 	export default {
 		// components 用于指明当前组件中 需要用哪些子组件
-		components: { Person },
+		components: { Person, Counter },
 		data() {
 			return {
 				actor: [],
