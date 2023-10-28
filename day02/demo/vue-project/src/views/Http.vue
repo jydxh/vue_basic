@@ -9,20 +9,27 @@
 
 		<hr />
 		<h1>查询结果</h1>
+		<div class="header">
+			<div class="cover">Cover</div>
+			<div class="title">Title</div>
+			<div class="actor">Actors</div>
+			<div class="showingon">Showing</div>
+			<div class="type">Type</div>
+			<div class="duration">Duration</div>
+		</div>
 		<div class="header" v-for="item in movie" :key="item.id">
 			<div class="cover"><img :src="item.cover" /></div>
 			<div class="title">{{ item.title }}</div>
 			<div class="actor">{{ item.star_actor }}</div>
 			<div class="showingon">{{ item.showingon }}</div>
 			<div class="type">{{ item.type }}</div>
-			<div class="duration">{{ item.duration }}minutes</div>
+			<div class="duration">{{ item.duration }}min</div>
 		</div>
 	</div>
 </template>
 
 <script>
-	import axios from "axios";
-	let instance = axios.create();
+	import Myaxios from "../http/Myaxios";
 	export default {
 		data() {
 			return {
@@ -33,11 +40,7 @@
 		methods: {
 			getMovies() {
 				// 发送请求，加载电影列表
-				instance({
-					url: "https://web.codeboy.com/bmdapi/movie-infos",
-					method: "GET",
-					params: { page: 1, pagesize: 20 },
-				})
+				Myaxios.get("https://web.codeboy.com/bmdapi/movie-infos", { page: 1, pagesize: 20 })
 					.then(res => {
 						console.log(res.data.data.result);
 						this.movie = res.data.data.result; // 电影数组保存到了movie中了
@@ -49,13 +52,10 @@
 
 			queryMovies() {
 				// post request for query the movies
-				instance({
-					url: "https://web.codeboy.com/bmdapi/movie-infos/name",
-					method: "POST",
-					data: `name=${this.name}&page=1&pagesize=20`,
-				})
+				Myaxios.post("https://web.codeboy.com/bmdapi/movie-infos/name", { name: this.name, page: 1, pagesize: 20 })
 					.then(res => {
 						console.log(res.data.data.result);
+						this.movie = res.data.data.result;
 					})
 					.catch(err => {
 						console.log(err);
@@ -81,10 +81,10 @@
 			}
 		}
 		.title {
-			flex: 1;
+			width: 150px;
 		}
 		.actor {
-			width: 220px;
+			width: 250px;
 		}
 		.showingon {
 			width: 150px;
