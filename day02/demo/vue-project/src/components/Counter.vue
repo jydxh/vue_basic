@@ -1,8 +1,8 @@
 <template>
 	<div class="counter">
-		<button @click="count - 1 < min ? count : count--" :disabled="count == min">-</button>
+		<button @click="count - step < min ? count : (count -= step)" :disabled="count == min">-</button>
 		<span>{{ count }}</span>
-		<button @click="count + 1 > max ? count : count++" :disabled="count == max">+</button>
+		<button @click="count + step > max ? count : (count += step)" :disabled="count == max">+</button>
 	</div>
 </template>
 
@@ -13,6 +13,7 @@
 		props: {
 			min: { type: Number, default: -10 },
 			max: { type: Number, default: 10 },
+			step: { type: Number, default: 1 },
 		},
 		data() {
 			return {

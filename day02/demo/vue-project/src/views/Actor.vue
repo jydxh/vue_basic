@@ -9,6 +9,8 @@
 		<br />
 		<counter :min="0" :max="20"></counter>
 		<br />
+		<counter :min="0" :max="11" :step="2"></counter>
+		<br />
 
 		<counter></counter>
 		<hr />
