@@ -66,6 +66,31 @@
 					});
 			},
 		},
+		beforeCreate() {
+			console.log("beforeCreate...");
+		},
+		created() {
+			console.log("created...");
+		},
+		beforeMount() {
+			console.log("beofreMount...");
+		},
+		mounted() {
+			console.log("mounted...");
+			this.getMovies();
+		},
+		beforeUpdate() {
+			console.log("beforeUpdated...");
+		},
+		updated() {
+			console.log("updated...");
+		},
+		beforeDestroy() {
+			console.log("beforeDestry...");
+		},
+		destroyed() {
+			console.log("destroyed...");
+		},
 	};
 </script>
 
