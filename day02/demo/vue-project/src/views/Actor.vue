@@ -10,9 +10,19 @@
 		<counter :min="0" :max="20"></counter>
 		<br />
 		<counter :min="0" :max="11" :step="2"></counter>
+		<hr />
+		<h2>测试组件的默认插槽</h2>
+		<counter>
+			<!-- //默认插槽内容 -->
+			<!-- <i>商品数量:</i> -->
+			<img src="../assets/logo.png" alt="" />
+		</counter>
 		<br />
 
-		<counter></counter>
+		<counter>
+			<i>记录一些数组：</i>
+		</counter>
+
 		<hr />
 		<!-- <div class="box">
 			<div class="card" v-for="item in actor" :key="item.id">
