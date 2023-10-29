@@ -67,6 +67,11 @@ const routes = [
 		component: () => import("../views/Detail.vue"),
 	},
 	{
+		//  detail/:id 用于匹配请求路径，并且可以把最后斜杠后的字符串当做路径参数 赋值给id note id前有: 表示接收参数占位
+		path: "/detail/:id",
+		component: () => import("../views/Detail.vue"),
+	},
+	{
 		path: "/about",
 		name: "about",
 		// route level code-splitting

@@ -19,7 +19,7 @@
 		</div>
 
 		<div class="header" v-for="item in movie" :key="item.id">
-			<div class="cover"><img :src="item.cover" @click="toDetail" /></div>
+			<div class="cover"><img :src="item.cover" @click="$router.push(`/detail/${item.id}`)" /></div>
 			<div class="title">
 				<router-link :to="`/detail?id=${item.id}`" tag="div"> {{ item.title }}</router-link>
 			</div>
@@ -41,9 +41,6 @@
 			};
 		},
 		methods: {
-			toDetail() {
-				this.$router.push("/detail");
-			},
 			getMovies() {
 				// 发送请求，加载电影列表
 				Myaxios.get("https://web.codeboy.com/bmdapi/movie-infos", { page: 1, pagesize: 20 })
