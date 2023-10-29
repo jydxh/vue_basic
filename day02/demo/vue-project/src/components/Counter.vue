@@ -1,10 +1,13 @@
 <template>
 	<div class="counter">
+		<!-- 具名插槽  name='left'-->
+		<slot name="left" />
 		<button @click="count - step < min ? count : (count -= step)" :disabled="count == min">-</button>
 		<!-- 设计的slot占位符，此处显示的内容取决于父组件使用时的默认的插槽内容 -->
 		<slot />
 		<span>{{ count }}</span>
 		<button @click="count + step > max ? count : (count += step)" :disabled="count == max">+</button>
+		<slot name="right" />
 	</div>
 </template>
 
@@ -27,13 +30,20 @@
 
 <style lang="scss" scoped>
 	.counter {
-		display: inline-block;
+		display: flex;
 		padding: 5px 10px;
 		border: 1px solid rgb(138, 172, 221);
 		background-color: rgb(238, 239, 241);
 		overflow: hidden;
 		border-radius: 40px;
 		line-height: 30px;
+
+		justify-content: space-around;
+		flex-wrap: nowrap;
+		margin: 0 auto;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		white-space: nowrap;
 		> button {
 			width: 30px;
 			height: 30px;
@@ -44,12 +54,13 @@
 			border-radius: 2px;
 		}
 		img {
+			display: block;
 			margin-left: 10px;
-
-			height: 15px;
+			overflow: hidden;
+			height: 30px;
 		}
 		span {
-			display: inline-block;
+			display: block;
 
 			text-align: center;
 			width: 60px;

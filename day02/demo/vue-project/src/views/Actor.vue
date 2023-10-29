@@ -20,10 +20,19 @@
 		<br />
 
 		<counter>
-			<i>记录一些数组：</i>
+			<i>记录数组：</i>
 		</counter>
 
 		<hr />
+
+		<h2>测试组件的具名插槽</h2>
+
+		<counter>
+			<span slot="left">左侧插槽内容left</span>
+			<i>计数:</i>
+			<span slot="right">右侧插槽内容right</span>
+		</counter>
+
 		<!-- <div class="box">
 			<div class="card" v-for="item in actor" :key="item.id">
 				<div><img :src="item.actor_avatar" alt="" /></div>
