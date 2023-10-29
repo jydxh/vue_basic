@@ -17,9 +17,12 @@
 			<div class="type">Type</div>
 			<div class="duration">Duration</div>
 		</div>
+
 		<div class="header" v-for="item in movie" :key="item.id">
-			<div class="cover"><img :src="item.cover" /></div>
-			<div class="title">{{ item.title }}</div>
+			<div class="cover"><img :src="item.cover" @click="toDetail" /></div>
+			<div class="title">
+				<router-link :to="`/detail?id=${item.id}`" tag="div"> {{ item.title }}</router-link>
+			</div>
 			<div class="actor">{{ item.star_actor }}</div>
 			<div class="showingon">{{ item.showingon }}</div>
 			<div class="type">{{ item.type }}</div>
@@ -38,6 +41,9 @@
 			};
 		},
 		methods: {
+			toDetail() {
+				this.$router.push("/detail");
+			},
 			getMovies() {
 				// 发送请求，加载电影列表
 				Myaxios.get("https://web.codeboy.com/bmdapi/movie-infos", { page: 1, pagesize: 20 })
@@ -53,6 +59,7 @@
 			queryMovies() {
 				// post request for query the movies
 				Myaxios.post("https://web.codeboy.com/bmdapi/movie-infos/name", { name: this.name, page: 1, pagesize: 20 })
+
 					.then(res => {
 						console.log(res.data.data.result);
 						this.movie = res.data.data.result;
